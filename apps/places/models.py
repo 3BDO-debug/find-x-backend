@@ -28,3 +28,6 @@ class PlaceImage(models.Model):
     class Meta:
         verbose_name = "Place image"
         verbose_name_plural = "Place images"
+
+    def __str__(self) -> None:
+        return f"Image_${self.id} for {self.place.name}"

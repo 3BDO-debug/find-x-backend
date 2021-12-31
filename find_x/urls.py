@@ -29,7 +29,7 @@ urlpatterns = [
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
-    path("", inject_db),
+    path("", admin.site.urls),
     path("places/", include("places.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
