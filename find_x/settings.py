@@ -29,9 +29,9 @@ sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["find-x-beta.herokuapp.com"]
 
 
 # Custome auth model
@@ -133,9 +133,7 @@ DATABASES = {
     }
 }
 DATABASES["default"] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-DATABASES["default"] = dj_database_url.config(
-    default="postgres://kmwehbcmspbgtb:dafff7f6e9896575020f8be58d92429a558940ee3a6a5bcf051c15a98b9c06e1@ec2-54-217-232-239.eu-west-1.compute.amazonaws.com:5432/d3ghugonnfqjll"
-)
+DATABASES["default"] = dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 
 
 # Password validation
