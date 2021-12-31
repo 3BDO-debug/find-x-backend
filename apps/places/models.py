@@ -30,4 +30,4 @@ class PlaceImage(models.Model):
         verbose_name_plural = "Place images"
 
     def __str__(self) -> None:
-        return f"Image_${self.id} for {self.place.name}"
+        return f"Image_{self.id} for {self.place.name}"
