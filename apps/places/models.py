@@ -1,7 +1,5 @@
 from django.db import models
-import urllib
-import os
-from django.core.files import File
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Place(models.Model):
@@ -25,7 +23,7 @@ class Place(models.Model):
 
 class PlaceImage(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Place")
-    image = models.ImageField(upload_to="uploads/places_imgs", null=True, blank=True)
+    image = CloudinaryField(verbose_name="Place image")
 
     class Meta:
         verbose_name = "Place image"
