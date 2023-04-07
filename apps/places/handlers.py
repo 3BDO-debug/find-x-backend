@@ -63,9 +63,6 @@ def inject_db(request):
 @authentication_classes([])
 def places_handler(request):
 
-    if request.method == "POST" and request.user.is_authenticated:
-        pass
-
     places = models.Place.objects.all()
     places_serializer = serializers.PlaceSerializer(places, many=True)
 
@@ -74,9 +71,6 @@ def places_handler(request):
 
 @api_view(["GET", "POST"])
 def places_images_handler(request):
-
-    if request.method == "POST" and request.user.is_authenticated:
-        pass
 
     places_images = models.PlaceImage.objects.all()
     places_images_serializer = serializers.PlaceImageSerializer(
